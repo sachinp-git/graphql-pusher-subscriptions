@@ -9,7 +9,7 @@ export default {
     file: 'lib/index.js',
     format: 'cjs'
   },
-  external: ['graphql-subscriptions', 'iterall', 'nats'],
+  external: ['graphql-subscriptions', 'iterall'],
   plugins: [
     typescript()
   ]

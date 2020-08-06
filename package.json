@@ -1,8 +1,8 @@
 {
   "name": "graphql-pusher-subscriptions",
   "version": "0.1.1",
-  "description": "GraphQL subscriptions over NATS",
-  "author": "Moon & Walker Technoligies",
+  "description": "GraphQL subscriptions with Pusher",
+  "author": "Sachin Pandey",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
