@@ -93,10 +93,10 @@ export class PubSubAsyncIterator<T> implements AsyncIterator<T> {
     })
   }
 
-  private emptyQueue(subscriptionIds: number[]) {
+  private emptyQueue(subscriptionId: number[]) {
     if (this.listening) {
       this.listening = false
-      this.unsubscribeAll();
+      this.unsubscribeAll(subscriptionId);
       this.pullQueue.forEach(resolve => resolve({ value: undefined, done: true }))
       this.pullQueue.length = 0
       this.pushQueue.length = 0
@@ -109,7 +109,9 @@ export class PubSubAsyncIterator<T> implements AsyncIterator<T> {
     ))
   }
 
-  private unsubscribeAll() {
-    this.pubsub.unsubscribe(1);
+  private unsubscribeAll(subscriptionIds: number[]) {
+    for (const subscriptionId of subscriptionIds) {
+      this.pubsub.unsubscribe(subscriptionId);
+    }
   }
 }
